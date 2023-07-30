@@ -1,4 +1,4 @@
-import './index.css'
+import './button.css'
 
 const BtnLogin = (props) => {
     return <button {...props}>Login</button>

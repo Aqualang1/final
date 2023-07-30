@@ -1,6 +1,6 @@
-import './index.css'
-import Input from '../../components/input'
-import BtnLogin from '../../components/button';
+import './login.css'
+import Input from '../../components/input/input'
+import BtnLogin from '../../components/button/button';
 
 
 const Block = () => {
