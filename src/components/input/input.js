@@ -1,7 +1,8 @@
 import './input.css'
 
 const Input = (props) => {
-    return <input type='text' {...props} />
+    
+    return <input {...props} />
 }
 
 export default Input;

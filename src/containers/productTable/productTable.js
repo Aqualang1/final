@@ -1,12 +1,12 @@
 import './productTable.css'
 import ButtonPanel from '../buttonsPanel/buttonsPanel';
-import Toplogo from '../topLogoBox/topLogo';
 import Banner from '../banner/banner';
 import TableContainer from '../tableContainer/tableContainer';
+import TopLogoGreen from '../../assets/rozetkaGreen.svg';
 
 const TableField = () => {
     return <div className='field'>
-        <Toplogo />
+        <img src={TopLogoGreen} alt='TopLogoGreen' />
         <ButtonPanel />
         <Banner />
         <TableContainer />

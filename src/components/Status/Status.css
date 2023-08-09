@@ -1,0 +1,9 @@
+.status {
+    display: flex;
+    justify-content: space-evenly;
+    color: #05BC52;
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+}

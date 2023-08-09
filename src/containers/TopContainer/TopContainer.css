@@ -1,8 +1,4 @@
-.field {
-    width: 100%;
-}
-
-img {
+.topContainer {
     position: absolute;
     top: 2%;
     left: 2%;

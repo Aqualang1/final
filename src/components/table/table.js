@@ -6,28 +6,30 @@ import { TbArrowsDownUp } from "react-icons/tb";
 const Table = () => {
     return <table className='table'>
         <thead>
-            <th>
-                ID
-                <TbArrowsDownUp />
-            </th>
-            <th>
-                Category
-                <TbArrowsDownUp className='icon' />
-            </th>
-            <th>
-                Name
-                <TbArrowsDownUp className='icon' />
-            </th>
-            <th>
-                Quantity
-                <TbArrowsDownUp className='icon' />
-            </th>
-            <th>
-                Price ($)
-                <TbArrowsDownUp className='icon' />
-            </th>
-            <th>
-            </th>
+            <tr>
+                <th>
+                    ID
+                    <TbArrowsDownUp />
+                </th>
+                <th>
+                    Category
+                    <TbArrowsDownUp className='icon' />
+                </th>
+                <th>
+                    Name
+                    <TbArrowsDownUp className='icon' />
+                </th>
+                <th>
+                    Quantity
+                    <TbArrowsDownUp className='icon' />
+                </th>
+                <th>
+                    Price ($)
+                    <TbArrowsDownUp className='icon' />
+                </th>
+                <th>
+                </th>
+            </tr>
         </thead>
 
         <tbody>
