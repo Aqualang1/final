@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import Input from '../../components/input/input';
-import BtnLogin from '../../components/button/button';
+import Input from '../../components/Input/Input';
+import BtnLogin from '../../components/Button/Button';
 import TopLogo from '../../assets/rozetka.svg';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
-import './login.css'
+import './Login.css'
 
 
 
-const Block = () => {
+const Login = () => {
     const [isViewPassword, setViewPassword] = useState(false);
 
     const passwordToggler = () => setViewPassword(!isViewPassword);
 
-    return <form className='block'>
+    return <form className='login'>
         <img src={TopLogo} alt='Logo' />
         <Input type='text' id='userName' placeholder="User Name" className="username" />
         <label id='showPassword'>
@@ -24,4 +24,4 @@ const Block = () => {
     </form>
 }
 
-export default Block;
+export default Login;

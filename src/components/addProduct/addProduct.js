@@ -1,4 +1,4 @@
-import './addProduct.css'
+import './AddProduct.css'
 import { AiOutlinePlus } from "react-icons/ai";
 
 const AddProduct = () => {

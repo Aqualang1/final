@@ -1,9 +1,9 @@
 import './ItemProperties.css'
 
-const ItemProperties = () => {
+const ItemProperties = ({price, stock}) => {
     return <div className='itemProperties'>
-    <p className='cost'>25000 $</p>
-    <p className='quantity'>Кількість: 5</p>
+    <p className='cost'>{price}₴</p>
+    <p className='quantity'>Кількість: {stock}</p>
     </div>
 }
 

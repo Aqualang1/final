@@ -1,4 +1,4 @@
-import './table.css'
+import './Table.css'
 import { BsFillPencilFill } from 'react-icons/bs';
 import { BsFillArchiveFill } from "react-icons/bs";
 import { TbArrowsDownUp } from "react-icons/tb";

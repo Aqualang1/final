@@ -1,9 +1,9 @@
 import './ItemDescription.css'
 
-const ItemDescription = () => {
+const ItemDescription = ({description}) => {
 
     return <p className='itemDescription'>
-        Ноутбук Lenovo Y50-70 Aluminum Black
+        {description}
     </p>
 }
 

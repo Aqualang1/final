@@ -1,16 +1,16 @@
-import './productTable.css'
-import ButtonPanel from '../buttonsPanel/buttonsPanel';
-import Banner from '../banner/banner';
-import TableContainer from '../tableContainer/tableContainer';
+import './ProductTable.css'
+import ButtonsPanel from '../../components/ButtonsPanel/ButtonsPanel';
+import Banner from '../../components/Banner/Banner';
+import TableWrapper from '../../components/TableWrapper/TableWrapper';
 import TopLogoGreen from '../../assets/rozetkaGreen.svg';
 
-const TableField = () => {
+const ProductTable = () => {
     return <div className='field'>
         <img src={TopLogoGreen} alt='TopLogoGreen' />
-        <ButtonPanel />
+        <ButtonsPanel />
         <Banner />
-        <TableContainer />
+        <TableWrapper />
     </div>
 }
 
-export default TableField;
+export default ProductTable;

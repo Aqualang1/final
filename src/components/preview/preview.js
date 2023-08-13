@@ -1,4 +1,4 @@
-import './preview.css'
+import './Preview.css'
 import { BsPerson } from "react-icons/bs";
 
 const Preview = () => {

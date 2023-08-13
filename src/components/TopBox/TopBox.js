@@ -1,11 +1,11 @@
 import TopLogo from '../../assets/rozetkaGreen.svg';
-import './TopContainer.css';
+import './TopBox.css';
 
-const TopContainer = () => {
+const TopBox = () => {
 
     return <div className='topContainer'>
         <img src={TopLogo} alt='Logo'/>
     </div>
 }
 
-export default TopContainer;
+export default TopBox;
