@@ -10,56 +10,108 @@ import './Login.css'
 const Login = () => {
 
     const [isViewPassword, setViewPassword] = useState(false);
-    const [isLoginError, setLoginError] = useState(false);
-    const [isPasswordError, setPasswordError] = useState(false);
+    const [showLoginError, setShowLoginError] = useState(false);
+    const [showPasswordError, setShowPasswordError] = useState(false);
     const [isFormError, setFormError] = useState(false)
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    const passwordError = () => setPasswordError(true);
-    const loginError = () => setLoginError(true);
-    const formError = () => setFormError(!isFormError);
+
     const passwordToggler = () => setViewPassword(!isViewPassword);
-    const submitter = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
 
-        setLoginError(false);
-        setPasswordError(false);
+    const usernameChange = (event) => {
+        setUsername(event.target.value);
+        if (event.target.value) {
+            setShowLoginError(false);
+        } else {
+            setShowLoginError(true);
+        }
+    }
+
+    const passwordChange = (event) => {
+        setPassword(event.target.value);
+        if (event.target.value) {
+            setShowPasswordError(false);
+        } else {
+            setShowPasswordError(true);
+        }
+    }
+
+    const handleSumbit = (event) => {
+        event.preventDefault();
         setFormError(false);
 
 
-        const username = formData.get('username').trim();
-        const password = formData.get('password').trim();
+
         if (username === 'admin' && password === '54321') {
             localStorage.setItem("token", 'thisIsToken');
         } else {
             if (username.length && password.length) {
-                formError();
-            } else {
-                if (!username.length) {
-                    loginError();
-                }
-                if (!password.length) {
-                    passwordError();
-                }
+                setFormError(true);
             }
+        } if (!username) {
+            setShowLoginError(true);
+        }
+        if (!password) {
+            setShowPasswordError(true);
         }
     }
 
 
-    return <form onSubmit={submitter} className='login' id='form'>
+    return <form onSubmit={handleSumbit} className='login' id='form'>
 
         <img src={TopLogo} alt='Logo' />
-        <Input type='text' name="username" id='userName' placeholder="User Name" className="username" />
-        <label className='errorInput' htmlFor="username" hidden={!isLoginError}>login is empty</label>
+        <Input
+            className="username"
+            id='userName'
+            name="username"
+            placeholder="User Name"
+            onChange={usernameChange}
+            type='text'
+            value={username}
+        />
+        <label
+            className='errorInput'
+            htmlFor="username"
+            hidden={!showLoginError}
+        >
+            login is empty
+        </label>
 
         <div id='showPassword'>
-            <Input type={isViewPassword ? "text" : "password"} name="password" id="password" placeholder="Password" className="password" />
-            <button id='show' type='button' onClick={passwordToggler}>{isViewPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}</button>
+            <Input
+                className="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                type={isViewPassword ? "text" : "password"}
+                value={password}
+                onChange={passwordChange}
+            />
+            <button
+                id='show'
+                type='button'
+                onClick={passwordToggler}
+            >
+                {isViewPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+            </button>
         </div>
-        <label htmlFor="password" className='errorInput' hidden={!isPasswordError}>password is empty</label>
+        <label
+            htmlFor="password"
+            className='errorInput'
+            hidden={!showPasswordError}
+        >
+            password is empty
+        </label>
 
         <BtnLogin />
-        <label htmlFor="form" className='errorInput' hidden={!isFormError}>Invalid data</label>
+        <label
+            htmlFor="form"
+            className='errorInput'
+            hidden={!isFormError}
+        >
+            Invalid data
+        </label>
 
     </form>
 }
