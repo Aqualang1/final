@@ -4,6 +4,8 @@ import Banner from '../../components/Banner/Banner';
 import TableWrapper from '../../components/TableWrapper/TableWrapper';
 import TopLogoGreen from '../../assets/rozetkaGreen.svg';
 
+
+
 const ProductTable = () => {
     return <div className='field'>
         <img src={TopLogoGreen} alt='TopLogoGreen' />

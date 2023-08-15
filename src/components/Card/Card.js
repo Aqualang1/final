@@ -5,12 +5,11 @@ import Status from '../../components/Status/Status';
 
 
 const Card = ({product}) => {
-    // const description = product.description;
-    // const picture = product.picture;
+   
     const { description, picture, isActive, stock, price } = product;
 
     return <div className='card'>
-        <img src={picture} alt='laptop' />
+        <img src={picture} alt='product' />
         <ItemDescription description={description} />
         <ItemProperties price={price} stock={stock} />
         <Status isActive={isActive} />

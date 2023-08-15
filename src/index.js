@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import Login from './containers/Login/Login'
-// import ProductTable from './containers/ProductTable/ProductTable';
+// import Login from './containers/Login/Login'
+import ProductTable from './containers/ProductTable/ProductTable';
 // import ProductsPreview from './containers/ProductsPreview/ProductsPreview';
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      {/* <ProductTable /> */}
+      {/* <Login /> */}
+      <ProductTable />
       {/* <ProductsPreview /> */}
     </div>
   );
