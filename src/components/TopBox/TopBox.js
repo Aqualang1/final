@@ -4,7 +4,7 @@ import './TopBox.css';
 const TopBox = () => {
 
     return <div className='topContainer'>
-        <img src={TopLogo} alt='Logo'/>
+        <img id='topLogo' src={TopLogo} alt='Logo'/>
     </div>
 }
 

@@ -46,7 +46,7 @@ const TableWrapper = () => {
                     </th>
                 </tr>
             </thead>
-            {products.map(product => <Table product={product} />)}
+            {products.map(product => <Table key={product.id} product={product} />)}
         </table>
     </div>
 }

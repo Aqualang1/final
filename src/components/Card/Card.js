@@ -4,11 +4,11 @@ import ItemProperties from '../../components/ItemProperties/ItemProperties';
 import Status from '../../components/Status/Status';
 
 
-const Card = ({product}) => {
+const Card = ({onClick, product }) => {
    
     const { description, picture, isActive, stock, price } = product;
 
-    return <div className='card'>
+    return <div className='card' onClick={onClick}>
         <img src={picture} alt='product' />
         <ItemDescription description={description} />
         <ItemProperties price={price} stock={stock} />

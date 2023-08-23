@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import Input from '../../components/Input/Input';
 import BtnLogin from '../../components/Button/Button';
@@ -15,6 +16,8 @@ const Login = () => {
     const [isFormError, setFormError] = useState(false)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
 
 
     const passwordToggler = () => setViewPassword(!isViewPassword);
@@ -45,6 +48,8 @@ const Login = () => {
 
         if (username === 'admin' && password === '54321') {
             localStorage.setItem("token", 'thisIsToken');
+            navigate('/productTable');
+
         } else {
             if (username.length && password.length) {
                 setFormError(true);

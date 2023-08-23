@@ -8,7 +8,7 @@ import TopLogoGreen from '../../assets/rozetkaGreen.svg';
 
 const ProductTable = () => {
     return <div className='field'>
-        <img src={TopLogoGreen} alt='TopLogoGreen' />
+        <img id='topLogo' src={TopLogoGreen} alt='TopLogoGreen' />
         <ButtonsPanel />
         <Banner />
         <TableWrapper />
