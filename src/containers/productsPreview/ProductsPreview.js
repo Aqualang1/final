@@ -6,7 +6,7 @@ import './ProductsPreview.css';
 
 const API_URL = 'https://64d8eebd5f9bf5b879ceb6cd.mockapi.io/products';
 
-const ProductsPreview = (props) => {
+const ProductsPreview = () => {
 
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();

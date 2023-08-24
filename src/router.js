@@ -28,17 +28,17 @@ const AppRouter = () => (
             <Route element={<PrivateRoute />}>
 
                 <Route
-                    path='/productTable'
+                    path='/product-table'
                     element={<ProductTable />}
                 />
 
                 <Route
-                    path='/productsPreview'
+                    path='/products-preview'
                     element={<ProductsPreview />}
                 />
 
                 <Route
-                    path='productsPreview/:productId'
+                    path='products-preview/:productId'
                     element={<Product />}
                 />
 
