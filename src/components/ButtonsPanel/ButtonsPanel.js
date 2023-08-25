@@ -7,7 +7,7 @@ const ButtonsPanel = () => {
     const navigate = useNavigate();
 
     return <div className='buttonpanel'>
-        <Preview onClick={() => navigate('/productsPreview')} />
+        <Preview onClick={() => navigate('/products-preview')} />
         <AddProduct />
     </div>
 }

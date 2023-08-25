@@ -26,7 +26,8 @@ const ProductsPreview = () => {
                 {products.map(product =>
                     <Card key={product.id}
                         product={product}
-                        onClick={() => navigate(`/productsPreview/${product.id}`)} />)}
+                        onClick={() => navigate(`/products-preview/${product.id}`)} />)
+                }
             </div>
         </>
     );

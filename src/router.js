@@ -1,7 +1,7 @@
 import Login from './containers/Login/Login'
 import ProductTable from './containers/ProductTable/ProductTable';
 import ProductsPreview from './containers/ProductsPreview/ProductsPreview';
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from './privateRoute';
 import Product from './components/Product/Product';
 import NotFound from './containers/NotFound/NotFound';

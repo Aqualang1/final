@@ -1,0 +1,9 @@
+.product-details {
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-container {
+    display: flex;
+}

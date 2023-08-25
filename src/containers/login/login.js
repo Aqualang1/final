@@ -48,7 +48,7 @@ const Login = () => {
 
         if (username === 'admin' && password === '54321') {
             localStorage.setItem("token", 'thisIsToken');
-            navigate('/productTable');
+            navigate('/product-table');
 
         } else {
             if (username.length && password.length) {
