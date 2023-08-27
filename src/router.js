@@ -3,7 +3,7 @@ import ProductTable from './containers/ProductTable/ProductTable';
 import ProductsPreview from './containers/ProductsPreview/ProductsPreview';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from './privateRoute';
-import Product from './components/Product/Product';
+import Product from './containers/Product/Product';
 import NotFound from './containers/NotFound/NotFound';
 
 const AppRouter = () => (

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import './TableWrapper.css'
 import Table from '../Table/Table';
 import { TbArrowsDownUp } from "react-icons/tb";
+import API_URL from '../../constants/constants';
 
 
-const API_URL = 'https://64d8eebd5f9bf5b879ceb6cd.mockapi.io/products';
 
 
 const TableWrapper = () => {

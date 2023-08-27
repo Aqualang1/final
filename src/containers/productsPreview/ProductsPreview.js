@@ -3,20 +3,29 @@ import { useEffect, useState } from 'react';
 import TopBox from '../../components/TopBox/TopBox';
 import Card from '../../components/Card/Card';
 import './ProductsPreview.css';
+import API_URL from "../../constants/constants";
 
-const API_URL = 'https://64d8eebd5f9bf5b879ceb6cd.mockapi.io/products';
 
 const ProductsPreview = () => {
 
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
+    async function getData() {
+        const response = await fetch(API_URL);
+        await response.json().then(_products => setProducts(_products));
+    }
 
     useEffect(() => {
-        fetch(API_URL)
-            .then(res => res.json())
-            .then(_products => setProducts(_products));
+        getData();
     }, []);
+
+
+    // useEffect(() => {
+    //     fetch(API_URL)
+    //         .then(res => res.json())
+    //         .then(_products => setProducts(_products));
+    // }, []);
 
 
     return (
