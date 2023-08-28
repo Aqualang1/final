@@ -1,0 +1,18 @@
+.itemProperties {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cost {
+    color: #FC5B00;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.quantity {
+    color: #000000;
+    font-weight: 500;
+    font-size: 15px;
+}
