@@ -5,8 +5,6 @@ import { TbArrowsDownUp } from "react-icons/tb";
 import API_URL from '../../constants/constants';
 
 
-
-
 const TableWrapper = () => {
 
     const [products, setProducts] = useState([]);
@@ -18,13 +16,29 @@ const TableWrapper = () => {
             .then(_products => setProducts(_products));
     }, []);
 
+    async function deleteData(id) {
+        try {
+            const response = await fetch(API_URL + '/' + id, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                setProducts(products.filter((el) => el.id !== id));
+            } else {
+                console.error('Failed to delete product');
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+
+    }
+
     return <div className='tableContainer'>
         <table className='table'>
             <thead>
                 <tr>
                     <th>
                         ID
-                        <TbArrowsDownUp className='icon'/>
+                        <TbArrowsDownUp className='icon' />
                     </th>
                     <th>
                         Category
@@ -46,7 +60,7 @@ const TableWrapper = () => {
                     </th>
                 </tr>
             </thead>
-            {products.map(product => <Table key={product.id} product={product} />)}
+            {products.map(product => <Table key={product.id} product={product} deleteData={deleteData} />)}
         </table>
     </div>
 }

@@ -1,9 +1,20 @@
-import './Table.css'
+import './Table.css';
 import { BsFillPencilFill, BsFillArchiveFill } from 'react-icons/bs';
+import ModalWindow from '../Modal/Modal';
+import { useState } from 'react';
 
-const Table = ({ product }) => {
+const getDeleteProduct = (productId) => () => {
+    console.log('going to delete product ' + productId);
+}
 
+const Table = ({ product, deleteData }) => {
+    const [modalOpen, setModalOpen] = useState(false);
     const { id, category, description, stock, price } = product;
+
+    const delDataAndSetModalOpen = () => {
+        deleteData(id);
+        setModalOpen();
+    }
 
     return <tbody>
         <tr>
@@ -24,11 +35,20 @@ const Table = ({ product }) => {
             </td>
             <td>
                 <BsFillPencilFill className='icon' />
-                <BsFillArchiveFill className='icon' />
+                <BsFillArchiveFill className='icon' onClick={() => setModalOpen(true)} />
             </td>
         </tr>
-    </tbody>
 
+        <ModalWindow
+            open={modalOpen}
+            closeModal={() => setModalOpen(false)}
+            onConfirm={getDeleteProduct(id)}
+            productId={id}
+            deleteData={deleteData}
+            delDataAndSetModalOpen={delDataAndSetModalOpen}
+        />
+
+    </tbody>
 }
 
 export default Table;
