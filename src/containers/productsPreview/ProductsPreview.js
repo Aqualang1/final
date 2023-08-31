@@ -21,13 +21,6 @@ const ProductsPreview = () => {
     }, []);
 
 
-    // useEffect(() => {
-    //     fetch(API_URL)
-    //         .then(res => res.json())
-    //         .then(_products => setProducts(_products));
-    // }, []);
-
-
     return (
         <>
             <TopBox />

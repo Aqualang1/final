@@ -46,6 +46,7 @@ const Table = ({ product, deleteData }) => {
             productId={id}
             deleteData={deleteData}
             delDataAndSetModalOpen={delDataAndSetModalOpen}
+            category={category}
         />
 
     </tbody>

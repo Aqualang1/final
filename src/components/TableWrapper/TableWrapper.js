@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import './TableWrapper.css'
 import Table from '../Table/Table';
 import { TbArrowsDownUp } from "react-icons/tb";
@@ -10,19 +10,24 @@ const TableWrapper = () => {
     const [products, setProducts] = useState([]);
 
 
+
+    const getData = async () => {
+        const response = await fetch(API_URL);
+        await response.json().then(_products => setProducts(_products));
+    }
+
     useEffect(() => {
-        fetch(API_URL)
-            .then(res => res.json())
-            .then(_products => setProducts(_products));
+        getData();
     }, []);
+
 
     async function deleteData(id) {
         try {
-            const response = await fetch(API_URL + '/' + id, {
+            const response = await fetch(`${API_URL}/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
-                setProducts(products.filter((el) => el.id !== id));
+                getData();
             } else {
                 console.error('Failed to delete product');
             }

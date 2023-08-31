@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TopBox from '../../components/TopBox/TopBox';
 import './product.css';
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -16,13 +16,15 @@ const Product = () => {
     const productId = params.productId;
 
     async function getData() {
-        const response = await fetch(API_URL + '/' + productId);
+        const response = await fetch(`${API_URL}/${productId}`);
         await response.json().then(_product => setProduct(_product));
     }
 
-    useEffect(() => {
-        getData();
-    }, []);
+    getData();
+
+    // useEffect(() => {
+    //     getData();
+    // }, []);
 
     const { picture, description, price, isActive, stock, category, productName, characteristics, more } = product;
 

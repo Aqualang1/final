@@ -16,23 +16,20 @@ Modal.setAppElement('#root');
 
 function ModalWindow(props) {
 
-    const { delDataAndSetModalOpen, afterOpenModal, closeModal, productId, open } = props;
-    
-
+    const { delDataAndSetModalOpen, afterOpenModal, closeModal, productId, open, category } = props;
 
     return (
         <Modal
-            isOpen={open}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            
+        isOpen={open}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
         >
-            <b>Delete product {productId}?</b>
-            <button onClick={closeModal}>close</button>
-            <button onClick={() => delDataAndSetModalOpen(productId)} >Delete product</button>
+        
+        <b>Delete product ID {productId} {category} ?</b>
+        <button onClick={closeModal}>close</button>
+        <button onClick={() => delDataAndSetModalOpen(productId)} >Delete product</button>
         </Modal>
-
     );
 }
 
