@@ -1,0 +1,14 @@
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+}
+
+.modalInput{
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+/* 
+.modalForm:not(:last-child){
+    
+} */

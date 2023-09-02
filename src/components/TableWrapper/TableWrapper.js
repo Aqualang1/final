@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import './TableWrapper.css'
 import Table from '../Table/Table';
 import { TbArrowsDownUp } from "react-icons/tb";
 import API_URL from '../../constants/constants';
-
-
 
 
 const TableWrapper = () => {
@@ -12,11 +10,30 @@ const TableWrapper = () => {
     const [products, setProducts] = useState([]);
 
 
+
+    const getData = async () => {
+        const response = await fetch(API_URL);
+        await response.json().then(_products => setProducts(_products));
+    }
+
     useEffect(() => {
-        fetch(API_URL)
-            .then(res => res.json())
-            .then(_products => setProducts(_products));
+        getData();
     }, []);
+
+
+    async function deleteData(id) {
+        try {
+            const response = await fetch(`${API_URL}/${id}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                getData();
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+
+    }
 
     return <div className='tableContainer'>
         <table className='table'>
@@ -24,7 +41,7 @@ const TableWrapper = () => {
                 <tr>
                     <th>
                         ID
-                        <TbArrowsDownUp className='icon'/>
+                        <TbArrowsDownUp className='icon' />
                     </th>
                     <th>
                         Category
@@ -46,7 +63,7 @@ const TableWrapper = () => {
                     </th>
                 </tr>
             </thead>
-            {products.map(product => <Table key={product.id} product={product} />)}
+            {products.map(product => <Table key={product.id} product={product} deleteData={deleteData} />)}
         </table>
     </div>
 }
