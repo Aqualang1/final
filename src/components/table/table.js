@@ -1,19 +1,17 @@
 import './Table.css';
 import { BsFillPencilFill, BsFillArchiveFill } from 'react-icons/bs';
-import ModalWindow from '../Modal/Modal';
+import ModalDeleteProduct from '../ModalDeleteProduct/ModalDeleteProduct';
 import { useState } from 'react';
-
-const getDeleteProduct = (productId) => () => {
-    console.log('going to delete product ' + productId);
-}
+import ModalForm from '../ModalForm/ModalForm';
 
 const Table = ({ product, deleteData }) => {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModalDeleteOpen] = useState(false);
+    const [modalFormOpen, setModalFormOpen] = useState(false);
     const { id, category, description, stock, price } = product;
 
     const delDataAndSetModalOpen = () => {
         deleteData(id);
-        setModalOpen();
+        setModalDeleteOpen();
     }
 
     return <tbody>
@@ -34,18 +32,28 @@ const Table = ({ product, deleteData }) => {
                 {price}
             </td>
             <td>
-                <BsFillPencilFill className='icon' />
-                <BsFillArchiveFill className='icon' onClick={() => setModalOpen(true)} />
+                <BsFillPencilFill className='icon' onClick={() => setModalFormOpen(true)} />
+                <BsFillArchiveFill className='icon' onClick={() => setModalDeleteOpen(true)} />
             </td>
         </tr>
 
-        <ModalWindow
+        <ModalDeleteProduct
             open={modalOpen}
-            closeModal={() => setModalOpen(false)}
-            onConfirm={getDeleteProduct(id)}
+            closeModal={() => setModalDeleteOpen(false)}
             productId={id}
             deleteData={deleteData}
             delDataAndSetModalOpen={delDataAndSetModalOpen}
+            category={category}
+        />
+
+        <ModalForm
+            open={modalFormOpen}
+            closeModal={() => setModalFormOpen(false)}
+            title="Edit product"
+            productId={id}
+            description={description}
+            stock={stock}
+            price={price}
             category={category}
         />
 

@@ -28,8 +28,6 @@ const TableWrapper = () => {
             });
             if (response.ok) {
                 getData();
-            } else {
-                console.error('Failed to delete product');
             }
         } catch (error) {
             console.error('An error occurred:', error);

@@ -14,7 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-function ModalWindow(props) {
+function ModalDeleteProduct(props) {
 
     const { delDataAndSetModalOpen, afterOpenModal, closeModal, productId, open, category } = props;
 
@@ -34,4 +34,4 @@ function ModalWindow(props) {
 }
 
 
-export default ModalWindow;
+export default ModalDeleteProduct;

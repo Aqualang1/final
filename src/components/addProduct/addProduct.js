@@ -1,9 +1,14 @@
 import './AddProduct.css'
 import { AiOutlinePlus } from "react-icons/ai";
 
-const AddProduct = () => {
-    return <div className='addProduct'>
-        <AiOutlinePlus className='icon'/>
+
+
+const AddProduct = (props) => {
+    
+    const {onClick} = props;
+
+    return <div onClick={onClick} className='addProduct'>
+        <AiOutlinePlus className='icon' />
         Add product
     </div>
 }
