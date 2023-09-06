@@ -91,6 +91,7 @@ function ModalForm(props) {
                     name="category"
                     type="text"
                     onChange={handleChange}
+                    placeholder="This field is required"
                 />
                 <label htmlFor='description'>
                     Name
@@ -100,6 +101,7 @@ function ModalForm(props) {
                     name="description"
                     type="text"
                     onChange={handleChange}
+                    placeholder="This field is required"
                 />
                 <label htmlFor='stock'>
                     Quantity
@@ -109,6 +111,7 @@ function ModalForm(props) {
                     name="stock"
                     type="text"
                     onChange={handleChange}
+                    placeholder="This field is required"
                 />
                 <label htmlFor='price'>
                     Price
@@ -118,6 +121,7 @@ function ModalForm(props) {
                     name="price"
                     type="text"
                     onChange={handleChange}
+                    placeholder="This field is required"
                 />
                 <label>
                     Dscription
