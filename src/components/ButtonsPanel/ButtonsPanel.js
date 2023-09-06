@@ -5,9 +5,14 @@ import AddProduct from '../AddProduct/AddProduct';
 import { useState } from 'react';
 import ModalForm from '../ModalForm/ModalForm';
 
-const ButtonsPanel = () => {
+
+const ButtonsPanel = ({ isLoaded, setIsLoaded, products, setProducts, newProduct, setNewProduct }) => {
     const navigate = useNavigate();
     const [modalFormOpen, setModalFormOpen] = useState(false);
+
+
+
+
 
 
     return <div className='buttonpanel'>
@@ -19,6 +24,11 @@ const ButtonsPanel = () => {
             open={modalFormOpen}
             closeModal={() => setModalFormOpen(false)}
             title="Add product"
+            newProduct={newProduct}
+            setIsLoaded={setIsLoaded}
+            setNewProduct={setNewProduct}
+            products={products}
+            setProducts={setProducts}
         />
     </div>
 }
