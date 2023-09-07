@@ -85,43 +85,55 @@ function ModalForm(props) {
                 <div className='formTitle'>{title}<BiX className='icon' onClick={closeModal} /></div>
                 <label htmlFor='category'>
                     Category
+                    <p hidden={newProduct.category}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className={`modalInput${newProduct.category ? ", normas" : ", required"}`}
+                    className={`modalInput${newProduct.category ? ", fulfilled" : ", required"}`}
                     name="category"
                     type="text"
                     onChange={handleChange}
-                    placeholder="This field is required"
+                    required
                 />
                 <label htmlFor='description'>
                     Name
+                    <p hidden={newProduct.description}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className={`modalInput${newProduct.description ? ", normas" : ", required"}`}
+                    className={`modalInput${newProduct.description ? ", fulfilled" : ", required"}`}
                     name="description"
                     type="text"
                     onChange={handleChange}
-                    placeholder="This field is required"
+                    required
                 />
                 <label htmlFor='stock'>
                     Quantity
+                    <p hidden={newProduct.stock}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className={`modalInput${newProduct.stock ? ", normas" : ", required"}`}
+                    className={`modalInput${newProduct.stock ? ", fulfilled" : ", required"}`}
                     name="stock"
                     type="text"
                     onChange={handleChange}
-                    placeholder="This field is required"
+                    required
                 />
                 <label htmlFor='price'>
                     Price
+                    <p hidden={newProduct.price}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className={`modalInput${newProduct.price ? ", normas" : ", required"}`}
+                    className={`modalInput${newProduct.price ? ", fulfilled" : ", required"}`}
                     name="price"
                     type="text"
                     onChange={handleChange}
-                    placeholder="This field is required"
+                    required
                 />
                 <label>
                     Dscription
