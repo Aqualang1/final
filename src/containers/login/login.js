@@ -44,8 +44,6 @@ const Login = () => {
         event.preventDefault();
         setFormError(false);
 
-
-
         if (username === 'admin' && password === '54321') {
             localStorage.setItem("token", 'thisIsToken');
             navigate('/product-table');

@@ -3,6 +3,9 @@ import Modal from 'react-modal';
 import { BiX } from "react-icons/bi";
 import Input from '../Input/Input';
 import './modalForm.css';
+import API_URL from '../../constants/constants';
+import { useState, useEffect } from 'react';
+
 
 const customStyles = {
     content: {
@@ -19,7 +22,56 @@ Modal.setAppElement('#root');
 
 function ModalForm(props) {
 
-    const { title, afterOpenModal, closeModal, stock, open, category, description, price } = props;
+    const { title,
+        afterOpenModal,
+        closeModal,
+        stock,
+        open,
+        category,
+        description,
+        price,
+        newProduct,
+        setNewProduct,
+        setIsLoaded } = props;
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setNewProduct({
+            ...newProduct,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (Object.values(newProduct).every((el) => el.length > 0)) {
+            createProduct(newProduct);
+            closeModal();
+        } else {
+            console.error("not fulfilled");
+        }
+
+    };
+
+
+    async function createProduct(newProduct) {
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newProduct),
+            });
+
+            if (response.ok) {
+                setIsLoaded(false);
+                closeModal();
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
+    };
 
     return (
         <Modal
@@ -27,48 +79,61 @@ function ModalForm(props) {
             onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             style={customStyles}
+            onSubmit={handleSubmit}
         >
             <form className='modalForm'>
                 <div className='formTitle'>{title}<BiX className='icon' onClick={closeModal} /></div>
                 <label htmlFor='category'>
                     Category
+                    <p hidden={newProduct.category}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className="modalInput"
-                    id="category"
+                    className={`modalInput${newProduct.category ? ", fulfilled" : ", required"}`}
                     name="category"
                     type="text"
-                    // value={category}
+                    onChange={handleChange}
+                    required
                 />
                 <label htmlFor='description'>
                     Name
+                    <p hidden={newProduct.description}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className="modalInput"
-                    id="description"
+                    className={`modalInput${newProduct.description ? ", fulfilled" : ", required"}`}
                     name="description"
                     type="text"
-                // value={description}
+                    onChange={handleChange}
+                    required
                 />
                 <label htmlFor='stock'>
                     Quantity
+                    <p hidden={newProduct.stock}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className="modalInput"
-                    id="stock"
+                    className={`modalInput${newProduct.stock ? ", fulfilled" : ", required"}`}
                     name="stock"
                     type="text"
-                // value={stock}
+                    onChange={handleChange}
+                    required
                 />
                 <label htmlFor='price'>
                     Price
+                    <p hidden={newProduct.price}
+                    >This field is required
+                    </p>
                 </label>
                 <Input
-                    className="modalInput"
-                    id="price"
+                    className={`modalInput${newProduct.price ? ", fulfilled" : ", required"}`}
                     name="price"
                     type="text"
-                // value={price}
+                    onChange={handleChange}
+                    required
                 />
                 <label>
                     Dscription
@@ -76,10 +141,10 @@ function ModalForm(props) {
                     </textarea>
                 </label>
                 <div className='formButtons'>
-                    <button onClick={closeModal}>
+                    <button type="button" onClick={closeModal}>
                         Cancel
                     </button>
-                    <button>
+                    <button type="submit" onClick={handleSubmit}>
                         Submit
                     </button>
                 </div>
@@ -87,6 +152,5 @@ function ModalForm(props) {
         </Modal>
     );
 }
-
 
 export default ModalForm;

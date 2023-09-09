@@ -4,11 +4,20 @@
     background-color: #D9D9D9;
 }
 
-.modalInput{
+.modalInput {
     background-color: #fff;
     margin-bottom: 5px;
 }
-/* 
-.modalForm:not(:last-child){
-    
-} */
+
+.formTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.required {
+    border: red 2px solid;
+}
+
+.fulfilled {
+    border: #44B26F 2px solid;
+}

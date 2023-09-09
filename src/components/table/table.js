@@ -4,13 +4,13 @@ import ModalDeleteProduct from '../ModalDeleteProduct/ModalDeleteProduct';
 import { useState } from 'react';
 import ModalForm from '../ModalForm/ModalForm';
 
-const Table = ({ product, deleteData }) => {
+const Table = ({ product, deleteProduct, newProduct, setNewProduct }) => {
     const [modalOpen, setModalDeleteOpen] = useState(false);
     const [modalFormOpen, setModalFormOpen] = useState(false);
     const { id, category, description, stock, price } = product;
 
     const delDataAndSetModalOpen = () => {
-        deleteData(id);
+        deleteProduct(id);
         setModalDeleteOpen();
     }
 
@@ -41,7 +41,7 @@ const Table = ({ product, deleteData }) => {
             open={modalOpen}
             closeModal={() => setModalDeleteOpen(false)}
             productId={id}
-            deleteData={deleteData}
+            deleteProduct={deleteProduct}
             delDataAndSetModalOpen={delDataAndSetModalOpen}
             category={category}
         />
@@ -55,6 +55,8 @@ const Table = ({ product, deleteData }) => {
             stock={stock}
             price={price}
             category={category}
+            newProduct={newProduct}
+            setNewProduct={setNewProduct}
         />
 
     </tbody>
