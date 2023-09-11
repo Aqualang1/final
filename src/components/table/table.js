@@ -4,7 +4,7 @@ import ModalDeleteProduct from '../ModalDeleteProduct/ModalDeleteProduct';
 import { useState } from 'react';
 import ModalForm from '../ModalForm/ModalForm';
 
-const Table = ({ product, deleteProduct, newProduct, setNewProduct }) => {
+const Table = ({ isLoaded, setIsLoaded, product, setProduct, deleteProduct, newProduct, setNewProduct, editProduct }) => {
     const [modalOpen, setModalDeleteOpen] = useState(false);
     const [modalFormOpen, setModalFormOpen] = useState(false);
     const { id, category, description, stock, price } = product;
@@ -57,8 +57,12 @@ const Table = ({ product, deleteProduct, newProduct, setNewProduct }) => {
             category={category}
             newProduct={newProduct}
             setNewProduct={setNewProduct}
+            product={product}
+            setProduct={setProduct}
+            isLoaded={isLoaded}
+            setIsLoaded={setIsLoaded}
+            editProduct={editProduct}
         />
-
     </tbody>
 }
 
