@@ -75,7 +75,6 @@ const ProductTable = () => {
         }
     }
 
-
     return <div className='field'>
         <img id='topLogo' src={TopLogoGreen} alt='TopLogoGreen' />
         <ButtonsPanel

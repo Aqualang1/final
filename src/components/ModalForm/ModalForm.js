@@ -46,14 +46,6 @@ function ModalForm(props) {
         });
     }
 
-    const handleChange = (event) => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        setProduct({
-            [name]: value,
-        });
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         if ((product.category) && (product.description) && (product.price) && (product.stock)) {
@@ -82,7 +74,7 @@ function ModalForm(props) {
                     className={`modalInput${product.category ? " fulfilled" : " required"}`}
                     name="category"
                     type="text"
-                    onChange={({ title } === "Edit product") ? handleChange : handleEdit}
+                    onChange={handleEdit}
                     required
                     value={product.category}
                 />
@@ -96,7 +88,7 @@ function ModalForm(props) {
                     className={`modalInput${product.description ? " fulfilled" : " required"}`}
                     name="description"
                     type="text"
-                    onChange={({ title } === "Edit product") ? handleChange : handleEdit}
+                    onChange={handleEdit}
                     required
                     value={product.description}
                 />
@@ -110,7 +102,7 @@ function ModalForm(props) {
                     className={`modalInput${product.stock ? " fulfilled" : " required"}`}
                     name="stock"
                     type="text"
-                    onChange={({ title } === "Edit product") ? handleChange : handleEdit}
+                    onChange={handleEdit}
                     required
                     value={product.stock}
                 />
@@ -124,7 +116,7 @@ function ModalForm(props) {
                     className={`modalInput${product.price ? " fulfilled" : " required"}`}
                     name="price"
                     type="text"
-                    onChange={({ title } === "Edit product") ? handleChange : handleEdit}
+                    onChange={handleEdit}
                     required
                     value={product.price}
                 />
