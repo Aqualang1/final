@@ -1,27 +1,10 @@
-import { useEffect } from 'react';
+// import { useEffect, useState } from 'react';
 import './TableWrapper.css'
 import Table from '../Table/Table';
 import { TbArrowsDownUp } from "react-icons/tb";
 import API_URL from '../../constants/constants';
 
-const TableWrapper = ({ isLoaded, setIsLoaded, products, setProducts, newProduct, setNewProduct }) => {
-
-    useEffect(() => {
-        if (!isLoaded) {
-            getData();
-        }
-    }, [isLoaded]);
-
-    const getData = async () => {
-        try {
-            const response = await fetch(API_URL);
-            const products = await response.json();
-            setProducts(products);
-        } catch (error) {
-            console.error("not loaded", error);
-        }
-        setIsLoaded(true);
-    }
+const TableWrapper = ({ isLoaded, setIsLoaded, products, setNewProduct, editProduct }) => {
 
     async function deleteProduct(id) {
         try {
@@ -69,8 +52,10 @@ const TableWrapper = ({ isLoaded, setIsLoaded, products, setProducts, newProduct
                     key={product.id}
                     product={product}
                     deleteProduct={deleteProduct}
-                    newProduct={newProduct}
                     setNewProduct={setNewProduct}
+                    isLoaded={isLoaded}
+                    setIsLoaded={setIsLoaded}
+                    editProduct={editProduct}
                 />)}
         </table>
     </div>
