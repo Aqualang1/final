@@ -33,5 +33,4 @@ function ModalDeleteProduct(props) {
     );
 }
 
-
 export default ModalDeleteProduct;

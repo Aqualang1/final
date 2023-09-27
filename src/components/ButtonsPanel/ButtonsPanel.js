@@ -6,14 +6,10 @@ import { useState } from 'react';
 import ModalForm from '../ModalForm/ModalForm';
 
 
-const ButtonsPanel = ({ isLoaded, setIsLoaded, products, setProducts, newProduct, setNewProduct, createProduct }) => {
+
+const ButtonsPanel = () => {
     const navigate = useNavigate();
     const [modalFormOpen, setModalFormOpen] = useState(false);
-
-
-
-
-
 
     return <div className='buttonpanel'>
 
@@ -24,13 +20,6 @@ const ButtonsPanel = ({ isLoaded, setIsLoaded, products, setProducts, newProduct
             open={modalFormOpen}
             closeModal={() => setModalFormOpen(false)}
             title="Add product"
-            newProduct={newProduct}
-            setIsLoaded={setIsLoaded}
-            isLoaded={isLoaded}
-            setNewProduct={setNewProduct}
-            products={products}
-            setProducts={setProducts}
-            createProduct={createProduct}
         />
     </div>
 }

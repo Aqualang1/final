@@ -2,22 +2,21 @@
 import './TableWrapper.css'
 import Table from '../Table/Table';
 import { TbArrowsDownUp } from "react-icons/tb";
-import API_URL from '../../constants/constants';
+// import API_URL from '../../constants/constants';
+// import { deleteProduct } from '../../constants/api';
 
-const TableWrapper = ({ isLoaded, setIsLoaded, products, setNewProduct, editProduct }) => {
+const TableWrapper = ({ products, setIsLoaded }) => {
 
-    async function deleteProduct(id) {
-        try {
-            const response = await fetch(`${API_URL}/${id}`, {
-                method: 'DELETE'
-            });
-            if (response.ok) {
-                setIsLoaded(false);
-            }
-        } catch (error) {
-            console.error('An error occurred:', error);
-        }
-    }
+    // async function deleteProductCall() {
+    //     try {
+    //         const response = deleteProduct(id);
+    //         if (response.ok) {
+    //             setIsLoaded(false);
+    //         }
+    //     } catch (error) {
+    //         console.error('An error occurred:', error);
+    //     }
+    // }
 
     return <div className='tableContainer'>
         <table className='table'>
@@ -51,13 +50,10 @@ const TableWrapper = ({ isLoaded, setIsLoaded, products, setNewProduct, editProd
                 <Table
                     key={product.id}
                     product={product}
-                    deleteProduct={deleteProduct}
-                    setNewProduct={setNewProduct}
-                    isLoaded={isLoaded}
                     setIsLoaded={setIsLoaded}
-                    editProduct={editProduct}
                 />)}
         </table>
+        
     </div>
 }
 

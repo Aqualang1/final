@@ -3,15 +3,15 @@ import { BsFillPencilFill, BsFillArchiveFill } from 'react-icons/bs';
 import ModalDeleteProduct from '../ModalDeleteProduct/ModalDeleteProduct';
 import { useState } from 'react';
 import ModalForm from '../ModalForm/ModalForm';
+import { deleteProduct } from '../../constants/api';
 
-const Table = ({ isLoaded, setIsLoaded, product, setProduct, deleteProduct, newProduct, setNewProduct, editProduct }) => {
+const Table = ({ product, setIsLoaded }) => {
     const [modalOpen, setModalDeleteOpen] = useState(false);
     const [modalFormOpen, setModalFormOpen] = useState(false);
     const { id, category, description, stock, price } = product;
 
     const delDataAndSetModalOpen = () => {
-        deleteProduct(id);
-        setModalDeleteOpen();
+        deleteProduct(id).finally(() => setModalDeleteOpen());
     }
 
     return <tbody>
@@ -41,9 +41,9 @@ const Table = ({ isLoaded, setIsLoaded, product, setProduct, deleteProduct, newP
             open={modalOpen}
             closeModal={() => setModalDeleteOpen(false)}
             productId={id}
-            deleteProduct={deleteProduct}
             delDataAndSetModalOpen={delDataAndSetModalOpen}
             category={category}
+            setIsLoaded={setIsLoaded}
         />
 
         <ModalForm
@@ -51,17 +51,8 @@ const Table = ({ isLoaded, setIsLoaded, product, setProduct, deleteProduct, newP
             closeModal={() => setModalFormOpen(false)}
             title="Edit product"
             productId={id}
-            description={description}
-            stock={stock}
-            price={price}
-            category={category}
-            newProduct={newProduct}
-            setNewProduct={setNewProduct}
             product={product}
-            setProduct={setProduct}
-            isLoaded={isLoaded}
             setIsLoaded={setIsLoaded}
-            editProduct={editProduct}
         />
     </tbody>
 }
