@@ -4,7 +4,9 @@ import TopBox from '../../components/TopBox/TopBox';
 import './product.css';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BiSolidBadgeCheck, BiSolidShoppingBag } from "react-icons/bi";
-import API_URL from '../../constants/constants';
+// import API_URL from '../../constants/constants';
+import { getProductById } from '../../constants/api';
+import { useEffect } from 'react';
 
 
 
@@ -15,16 +17,16 @@ const Product = () => {
     const navigate = useNavigate();
     const productId = params.productId;
 
-    async function getData() {
-        const response = await fetch(`${API_URL}/${productId}`);
-        await response.json().then(_product => setProduct(_product));
-    }
+    // async function getData() {
+    //     const response = await fetch(`${API_URL}/${productId}`);
+    //     await response.json().then(_product => setProduct(_product));
+    // }
 
-    getData();
+    // getData(productId).then(_product => setProduct(_product));
 
-    // useEffect(() => {
-    //     getData();
-    // }, []);
+    useEffect(() => {
+        getProductById(productId).then(_product => setProduct(_product));
+    }, [productId]);
 
     const { picture, description, price, isActive, stock, category, productName, characteristics, more } = product;
 

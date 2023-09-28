@@ -4,7 +4,7 @@ import { BiX } from "react-icons/bi";
 import Input from '../Input/Input';
 import './modalForm.css';
 import { useState } from 'react';
-
+import { editProduct, createProduct } from '../../constants/api';
 
 const customStyles = {
     content: {
@@ -26,8 +26,7 @@ function ModalForm(props) {
         closeModal,
         open,
         product: productProp,
-        editProduct,
-        createProduct
+        setIsLoaded
     } = props;
 
     const [product, setProduct] = useState(productProp || {
@@ -49,10 +48,11 @@ function ModalForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if ((product.category) && (product.description) && (product.price) && (product.stock)) {
-            (title === "Edit product") ? editProduct(product) : createProduct(product);
-            closeModal();
-        } else {
-            console.error("not fulfilled");
+            const calledFunction = title === "Edit product" ? editProduct : createProduct;
+            calledFunction(product)
+                .then(() => setIsLoaded(false))
+                .catch(error => console.log(error))
+                .finally(closeModal);
         }
     };
 
@@ -63,7 +63,6 @@ function ModalForm(props) {
             onRequestClose={closeModal}
             style={customStyles}
             onSubmit={handleSubmit}
-
         >
             <form className='modalForm'>
                 <div className='formTitle'>{title}<BiX className='icon' onClick={closeModal} /></div>
