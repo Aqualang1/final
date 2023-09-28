@@ -7,7 +7,7 @@ import ModalForm from '../ModalForm/ModalForm';
 
 
 
-const ButtonsPanel = () => {
+const ButtonsPanel = ({ setIsLoaded }) => {
     const navigate = useNavigate();
     const [modalFormOpen, setModalFormOpen] = useState(false);
 
@@ -20,6 +20,7 @@ const ButtonsPanel = () => {
             open={modalFormOpen}
             closeModal={() => setModalFormOpen(false)}
             title="Add product"
+            setIsLoaded={setIsLoaded}
         />
     </div>
 }

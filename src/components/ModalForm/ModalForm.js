@@ -50,9 +50,9 @@ function ModalForm(props) {
         if ((product.category) && (product.description) && (product.price) && (product.stock)) {
             const calledFunction = title === "Edit product" ? editProduct : createProduct;
             calledFunction(product)
-                .then(setIsLoaded)
+                .then(() => setIsLoaded(false))
                 .catch(error => console.log(error))
-                .finally(closeModal());
+                .finally(closeModal);
         }
     };
 

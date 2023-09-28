@@ -29,33 +29,35 @@ export const createProduct = (product) => {
         body: JSON.stringify(product),
     }).then(response => response.json());
 }
-    export const getProductById = (productId) => {
-        return fetch(`${API_URL}/${productId}`).then(response => response.json());
-    }
 
-    // const getData = async () => {
-    //     try {
-    //         const response = await fetch(API_URL);
-    //         const products = await response.json();
-    //         setProducts(products);
-    //     } catch (error) {
-    //         console.error("not loaded", error);
-    //     }
-    //     setIsLoaded(true);
-    // }
+export const getProductById = (productId) => {
+    return fetch(`${API_URL}/${productId}`)
+        .then(response => response.json());
+}
 
-    // async function deleteProduct(id) {
-    //     try {
-    //         const response = await fetch(`${API_URL}/${id}`, {
-    //             method: 'DELETE'
-    //         });
-    //         if (response.ok) {
-    //             setIsLoaded(false);
-    //         }
-    //     } catch (error) {
-    //         console.error('An error occurred:', error);
-    //     }
-    // }
+// const getData = async () => {
+//     try {
+//         const response = await fetch(API_URL);
+//         const products = await response.json();
+//         setProducts(products);
+//     } catch (error) {
+//         console.error("not loaded", error);
+//     }
+//     setIsLoaded(true);
+// }
+
+// async function deleteProduct(id) {
+//     try {
+//         const response = await fetch(`${API_URL}/${id}`, {
+//             method: 'DELETE'
+//         });
+//         if (response.ok) {
+//             setIsLoaded(false);
+//         }
+//     } catch (error) {
+//         console.error('An error occurred:', error);
+//     }
+// }
 
 // export async function editProduct(product) {
 //     try {
