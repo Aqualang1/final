@@ -16,7 +16,7 @@ Modal.setAppElement('#root');
 
 function ModalDeleteProduct(props) {
 
-    const { delDataAndSetModalOpen, afterOpenModal, closeModal, productId, open, category } = props;
+    const { delDataAndSetModalOpen, afterOpenModal, closeModal, open, product = {} } = props;
 
     return (
         <Modal
@@ -26,9 +26,9 @@ function ModalDeleteProduct(props) {
         style={customStyles}
         >
         
-        <b>Delete product ID {productId} {category} ?</b>
+        <b>Delete product ID {product.id} {product.category} ?</b>
         <button onClick={closeModal}>close</button>
-        <button onClick={() => delDataAndSetModalOpen(productId)} >Delete product</button>
+        <button onClick={() => delDataAndSetModalOpen(product)} >Delete product</button>
         </Modal>
     );
 }

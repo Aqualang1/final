@@ -1,0 +1,22 @@
+.login {
+    background: #F5F5F5;
+    padding: 10em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+}
+
+.login :not(:last-child) {
+    margin-bottom: 30px;
+}
+
+#show {
+    background: #D9D9D9;
+    color: #44B26F;
+    padding: 19px;
+}
+
+.errorInput {
+    color: red;
+
+}

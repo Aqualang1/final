@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { BiX } from "react-icons/bi";
 import Input from '../Input/Input';
 import './modalForm.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { editProduct, createProduct } from '../../constants/api';
 
 const customStyles = {
@@ -21,20 +21,23 @@ Modal.setAppElement('#root');
 
 function ModalForm(props) {
 
-    const { title,
+    const {
+        title,
         afterOpenModal,
         closeModal,
         open,
-        product: productProp,
+        product: productProp = {
+            category: '',
+            description: '',
+            stock: '',
+            price: ''
+        },
         setIsLoaded
     } = props;
 
-    const [product, setProduct] = useState(productProp || {
-        category: '',
-        description: '',
-        stock: '',
-        price: ''
-    });
+    const [product, setProduct] = useState(productProp);
+
+    useEffect(() => productProp.id && setProduct(productProp), [productProp]);
 
     const handleEdit = (event) => {
         event.preventDefault();
